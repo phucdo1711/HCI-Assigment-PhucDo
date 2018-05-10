@@ -3,11 +3,11 @@ import MainSection from '../components/MainSection';
 import ContentWrapper from '../components/ContentWrapper';
 import PageTitle from '../components/PageTitle';
 
-export default class HomePage extends Component {
+export default class Replays extends Component {
   render() {
     return (
       <ContentWrapper>
-        <PageTitle>Settings</PageTitle>
+        <PageTitle>Replays</PageTitle>
         <MainSection />
       </ContentWrapper>
     );
