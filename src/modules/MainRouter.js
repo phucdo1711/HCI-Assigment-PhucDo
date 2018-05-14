@@ -1,52 +1,25 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
-import { Router, Route, browserHistory } from 'react-router';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import App from './App';
-import TrafficRecordings from '../pages/TrafficRecordings';
-import Replays from '../pages/Replays';
+import Classes from '../pages/Classes';
+import Dashboard from 'pages/Dashboard';
+import Assignments from 'pages/Assignments';
 
 export default class MainRouter extends Component {
-  constructor() {
-    super();
-    this.state = {
-      navOpenState: {
-        isOpen: true,
-        width: 304,
-      }
-    }
-  }
-
-  getChildContext () {
-    return {
-      navOpenState: this.state.navOpenState,
-    };
-  }
-
-  appWithPersistentNav = () => (props) => (
-    <App
-      onNavResize={this.onNavResize}
-      {...props}
-    />
-  )
-
-  onNavResize = (navOpenState) => {
-    this.setState({
-      navOpenState,
-    });
-  }
 
   render() {
     return (
-      <Router history={browserHistory}>
-        <Route component={this.appWithPersistentNav()}>
-          <Route path="/" component={TrafficRecordings} />
-          <Route path="/replays" component={Replays} />
-        </Route>
+      <Router >
+        <App>
+          <Switch>
+            <Route exact path="/" component={Dashboard} />
+            <Route exact path="/classes" component={Classes} />
+            <Route exact path="/assignments" component={Assignments} />    
+            <Route exact path="/assignments/:id" component={Assignments} />                                
+          </Switch>
+        </App>
       </Router>
     );
   }
-}
-
-MainRouter.childContextTypes = {
-  navOpenState: PropTypes.object,
 }
