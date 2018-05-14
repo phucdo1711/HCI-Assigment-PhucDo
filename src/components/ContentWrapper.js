@@ -11,7 +11,7 @@ const Padding = styled.div`
 `;
 
 export default ({ children, title, actions, breadcrumbs }) => (
-  <Grid >
+  <Grid layout='fluid'>
     <GridColumn>
       <PageHeader actions={actions} breadcrumbs={breadcrumbs}>{title}</PageHeader>
       <Padding>{children}</Padding>

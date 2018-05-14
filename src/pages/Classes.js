@@ -2,25 +2,30 @@ import React, { Component } from 'react';
 import ContentWrapper from '../components/ContentWrapper';
 import DynamicTable from '@atlaskit/dynamic-table';
 import Button from '@atlaskit/button';
+import { inject, observer } from 'mobx-react';
+import ClassStore from '../stores/ClassStore';
+import {withRouter} from 'react-router-dom';
+import { BreadcrumbsStateless, BreadcrumbsItem } from '@atlaskit/breadcrumbs';
 
-const listClasses = [
-    {name: 'Human Computer Interaction', code: 'HCI', term: 'Spring 2018', studentNum: 120},
-    {name: 'Human Computer Interaction', code: 'HCI-RELEARN', term: 'Relearn - Spring 2018', studentNum: 120},
-    {name: 'Web Technology', code: 'WEB', term: 'Spring 2018', studentNum: 120},
-    {name: 'Special Subject 2 - 6C15', code: 'SS2', term: 'Spring 2018', studentNum: 30},
-    {name: 'Project Management', code: 'PJM', term: 'Spring 2018', studentNum: 120},
-    {name: 'Information System', code: 'IST', term: 'Spring 2018', studentNum: 102},    
-]
+type Props = {
+    classes: ClassStore,
+    history: Object
+}
 
+@observer
+@inject('classes')
 class Classes extends Component {
+    props: Props
+    
     renderRows(): Array {
+        const { classes, history} = this.props;
         var rows = [];
-        listClasses.forEach((c) => {
+        classes.getClasses.forEach((c) => {
             var row = {
                 cells: [
                     {
                         key: 1,
-                        content: <Button appearance='link' >{c.name}</Button>
+                        content: <Button appearance='link' onClick={() => history.push(`/classes/${c.id}`)} >{c.name}</Button>
                     
                     }, {
                         key: 2, 
@@ -33,13 +38,24 @@ class Classes extends Component {
                         content: c.studentNum
                     }
                 ],
-                key: c.code
+                key: c.id
             }
             rows.push(row);
         });
         return rows;
     }
 
+    renderBreadcrumbs() {
+        const { history } = this.props;
+        return (
+            <BreadcrumbsStateless >
+                <BreadcrumbsItem
+                    text="Classes"
+                    onClick={() => history.push(`/classes`)}
+                />
+            </BreadcrumbsStateless>
+        )
+    }
     renderHead() {
         const head = {
             cells: [
@@ -70,7 +86,7 @@ class Classes extends Component {
 
     render() {
         return (
-            <ContentWrapper title="Classes" >
+            <ContentWrapper title="Classes" breadcrumbs={this.renderBreadcrumbs()}>
                 <DynamicTable 
                     head={this.renderHead()}
                     rows={this.renderRows()}
@@ -82,4 +98,4 @@ class Classes extends Component {
     }
 }
 
-export default Classes;
+export default withRouter(Classes);
