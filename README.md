@@ -9,4 +9,4 @@ yarn install
 yarn start
 ```
 
-## Author: PHUC DO
+## Author: Dỗ Thành Phúc - 1501040153 - 6C15
