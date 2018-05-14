@@ -6,6 +6,7 @@ import Nav, {
   AkCreateDrawer,
   AkNavigationItem,
   AkSearchDrawer,
+  AkGlobalItem
 } from '@atlaskit/navigation';
 import PeopleGroupIcon from '@atlaskit/icon/glyph/people-group';
 import CreateIcon from '@atlaskit/icon/glyph/add';
@@ -13,9 +14,14 @@ import ArrowleftIcon from '@atlaskit/icon/glyph/arrow-left';
 import DashboardIcon from '@atlaskit/icon/glyph/dashboard';
 import BookIcon from '@atlaskit/icon/glyph/book';
 import Avatar from '@atlaskit/avatar';
+import { observer, inject } from 'mobx-react';
+import CreateDrawer from './CreateDrawer';
 
+@inject('ui')
+@observer
  class Navigation extends React.Component {
   state = {
+    openDrawer: false,
     navLinks: [
       ['', 'Dashboard', DashboardIcon],
       ['classes', 'Classes', PeopleGroupIcon],
@@ -23,17 +29,24 @@ import Avatar from '@atlaskit/avatar';
     ]
   };
 
+  openDrawer = openDrawer => {
+    this.setState({ openDrawer });
+  };
+  closeDrawer = () => this.setState({ openDrawer: false });
+
   render() {
     const {location} = this.props;
     const locationArr = location.pathname.split('/');
     const backIcon = <ArrowleftIcon label="Back icon" size="medium" />;
     const globalPrimaryIcon = "FIT PORTAL";
+    const { ui } = this.props;
+    const { openDrawer } = this.state;
 
     return (
       <Nav
-        // isOpen={this.context.navOpenState.isOpen}
-        // width={this.context.navOpenState.width}
-        // onResize={this.props.onNavResize}
+      isOpen={ui.isOpenNav}
+      width={ui.navWidth}
+      onResize={ui.resizeNav}
         containerHeaderComponent={() =>
           <AkContainerTitle
             href={`/`}
@@ -44,14 +57,15 @@ import Avatar from '@atlaskit/avatar';
         globalPrimaryIcon={globalPrimaryIcon}
         globalPrimaryItemHref="/"
         drawers={[
-          <AkCreateDrawer
-            backIcon={backIcon}
-            key="create"
-            primaryIcon={globalPrimaryIcon}
-          >
-          </AkCreateDrawer>
+          <CreateDrawer
+              drawerIsOpen={openDrawer === 'create'}
+              closeDrawer={this.closeDrawer}
+              key={'create'}
+          />
         ]}
-        globalCreateIcon={<CreateIcon label="Create icon" />}
+        globalCreateIcon={ 
+        <CreateIcon label='Create' onClick={() => this.openDrawer('create')}/>
+    }
       >
         {
           this.state.navLinks.map(link => {

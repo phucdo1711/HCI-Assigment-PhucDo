@@ -11,9 +11,8 @@ type Props = {
     classes: ClassStore,
     history: Object
 }
-
-@observer
 @inject('classes')
+@observer
 class Classes extends Component {
     props: Props
     

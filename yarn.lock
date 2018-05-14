@@ -32,6 +32,13 @@
     "@atlaskit/theme" "^2.3.4"
     styled-components "^1.4.6"
 
+"@atlaskit/blanket@^5.0.1":
+  version "5.0.1"
+  resolved "https://registry.yarnpkg.com/@atlaskit/blanket/-/blanket-5.0.1.tgz#daa8002b5d7da106cd07b169cd42ba9fbef304f1"
+  dependencies:
+    "@atlaskit/theme" "^3.1.1"
+    styled-components "1.4.6 - 3"
+
 "@atlaskit/breadcrumbs@^4.1.1":
   version "4.1.1"
   resolved "https://registry.yarnpkg.com/@atlaskit/breadcrumbs/-/breadcrumbs-4.1.1.tgz#b73cf38dc2f23b71fc5bbe1ac0d9aba7e5e7ab96"
@@ -59,6 +66,18 @@
     "@atlaskit/theme" "^3.1.1"
     babel-runtime "^6.26.0"
     styled-components "1.4.6 - 3"
+
+"@atlaskit/calendar@^5.0.2":
+  version "5.0.2"
+  resolved "https://registry.yarnpkg.com/@atlaskit/calendar/-/calendar-5.0.2.tgz#623360a4c7f6a89a6d603510472b9a8c59711f72"
+  dependencies:
+    "@atlaskit/button" "^7.2.1"
+    "@atlaskit/icon" "^11.1.1"
+    "@atlaskit/theme" "^3.1.1"
+    calendar-base "^0.3.0"
+    lodash.pick "^4.4.0"
+    styled-components "1.4.6 - 3"
+    uuid "^3.1.0"
 
 "@atlaskit/code@^4.0.2":
   version "4.0.2"
@@ -141,6 +160,25 @@
     babel-runtime "^6.26.0"
     styled-components "^1.4.6"
 
+"@atlaskit/field-base@^9.0.2":
+  version "9.0.2"
+  resolved "https://registry.yarnpkg.com/@atlaskit/field-base/-/field-base-9.0.2.tgz#54257fdd481d3a03e8d3d0dc3619ac2d2521af55"
+  dependencies:
+    "@atlaskit/icon" "^11.1.1"
+    "@atlaskit/inline-dialog" "^6.0.1"
+    "@atlaskit/spinner" "^5.0.1"
+    "@atlaskit/theme" "^3.1.1"
+    babel-runtime "^6.26.0"
+    styled-components "1.4.6 - 3"
+
+"@atlaskit/field-text@^5.0.2":
+  version "5.0.2"
+  resolved "https://registry.yarnpkg.com/@atlaskit/field-text/-/field-text-5.0.2.tgz#153677a4202fcaab2cbcb0f0c792d1cedae0c514"
+  dependencies:
+    "@atlaskit/field-base" "^9.0.2"
+    "@atlaskit/theme" "^3.1.1"
+    styled-components "1.4.6 - 3"
+
 "@atlaskit/flag@^6.4.6":
   version "6.4.6"
   resolved "https://registry.yarnpkg.com/@atlaskit/flag/-/flag-6.4.6.tgz#6fcf90954a0a199219c513163c95ef79fa854357"
@@ -180,6 +218,14 @@
     "@atlaskit/theme" "^2.3.4"
     styled-components "^1.4.6"
 
+"@atlaskit/inline-dialog@^6.0.1":
+  version "6.0.1"
+  resolved "https://registry.yarnpkg.com/@atlaskit/inline-dialog/-/inline-dialog-6.0.1.tgz#5acea9a57328de2d4953bf0f692f5543688a0bc3"
+  dependencies:
+    "@atlaskit/layer" "^3.0.0"
+    "@atlaskit/theme" "^3.1.1"
+    styled-components "1.4.6 - 3"
+
 "@atlaskit/inline-edit@^4.5.18":
   version "4.5.18"
   resolved "https://registry.yarnpkg.com/@atlaskit/inline-edit/-/inline-edit-4.5.18.tgz#6aae6ff365c53c18e779bfa5624ef2d32a6d5e4f"
@@ -211,7 +257,7 @@
     styled-components "^1.4.6"
     tabbable "^1.1.0"
 
-"@atlaskit/layer-manager@^3.0.3":
+"@atlaskit/layer-manager@^3.0.1", "@atlaskit/layer-manager@^3.0.3":
   version "3.0.3"
   resolved "https://registry.yarnpkg.com/@atlaskit/layer-manager/-/layer-manager-3.0.3.tgz#a46dd575f3a7635ac6a46f2d629a15a2ac354d44"
   dependencies:
@@ -227,20 +273,27 @@
   dependencies:
     styled-components "^1.4.6"
 
-"@atlaskit/modal-dialog@^3.3.15":
-  version "3.3.15"
-  resolved "https://registry.yarnpkg.com/@atlaskit/modal-dialog/-/modal-dialog-3.3.15.tgz#df980711c5d19580d007dd8377f403f119e6c38d"
+"@atlaskit/layer@^3.0.0":
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/@atlaskit/layer/-/layer-3.1.0.tgz#cf8a814a3129d5f9d0b2e325a5d663d70c52632d"
   dependencies:
-    "@atlaskit/blanket" "^4.0.9"
-    "@atlaskit/button" "^6.4.2"
-    "@atlaskit/icon" "^10.9.2"
-    "@atlaskit/layer-manager" "^2.7.4"
-    "@atlaskit/theme" "^2.3.4"
+    react-scrolllock "^2.0.2"
+    styled-components "1.4.6 - 3"
+
+"@atlaskit/modal-dialog@^4.0.4":
+  version "4.0.4"
+  resolved "https://registry.yarnpkg.com/@atlaskit/modal-dialog/-/modal-dialog-4.0.4.tgz#4a7ed51915883291e135c99cab96d187c509823f"
+  dependencies:
+    "@atlaskit/blanket" "^5.0.1"
+    "@atlaskit/button" "^7.2.1"
+    "@atlaskit/icon" "^11.1.1"
+    "@atlaskit/layer-manager" "^3.0.1"
+    "@atlaskit/theme" "^3.1.1"
     focusin "^2.0.0"
     prop-types "^15.5.10"
     raf-schd "^2.1.0"
     react-transition-group "^2.2.1"
-    styled-components "^1.4.6"
+    styled-components "1.4.6 - 3"
     tabbable "^1.1.0"
 
 "@atlaskit/navigation@^29.0.2":
@@ -297,6 +350,16 @@
 "@atlaskit/polyfills@^1.4.3":
   version "1.4.3"
   resolved "https://registry.yarnpkg.com/@atlaskit/polyfills/-/polyfills-1.4.3.tgz#4e955c552f9426c7654c8b81cbb8edb158f65378"
+
+"@atlaskit/select@^2.0.2":
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/@atlaskit/select/-/select-2.0.2.tgz#525433594676563e9591b885416f9c14f71ea522"
+  dependencies:
+    "@atlaskit/icon" "^11.1.1"
+    "@atlaskit/theme" "^3.1.1"
+    react-select "^2.0.0-beta.2"
+    react-transition-group "^2.2.1"
+    styled-components "1.4.6 - 3"
 
 "@atlaskit/size-detector@^2.1.3":
   version "2.1.3"
@@ -1676,6 +1739,10 @@ bytes@3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/bytes/-/bytes-3.0.0.tgz#d32815404d689699f85a4ea4fa8755dd13a96048"
 
+calendar-base@^0.3.0:
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/calendar-base/-/calendar-base-0.3.0.tgz#483d3d07c5befedf9969a9a81a6a845794a6e251"
+
 caller-path@^0.1.0:
   version "0.1.0"
   resolved "https://registry.yarnpkg.com/caller-path/-/caller-path-0.1.0.tgz#94085ef63581ecd3daa92444a8fe94e82577751f"
@@ -2664,7 +2731,7 @@ emojis-list@^2.0.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/emojis-list/-/emojis-list-2.1.0.tgz#4daa4d9db00f9819880c79fa457ae5b09a1fd389"
 
-emotion@^9.1.1:
+emotion@^9.1.1, emotion@^9.1.2:
   version "9.1.3"
   resolved "https://registry.yarnpkg.com/emotion/-/emotion-9.1.3.tgz#e9b3e897ba3d5c0aff5628b0008a8993fa9c0937"
   dependencies:
@@ -3020,6 +3087,10 @@ execa@^0.7.0:
     p-finally "^1.0.0"
     signal-exit "^3.0.0"
     strip-eof "^1.0.0"
+
+exenv@^1.2.2:
+  version "1.2.2"
+  resolved "https://registry.yarnpkg.com/exenv/-/exenv-1.2.2.tgz#2ae78e85d9894158670b03d47bec1f03bd91bb9d"
 
 expand-brackets@^0.1.4:
   version "0.1.5"
@@ -4814,6 +4885,10 @@ lodash.memoize@^4.1.2:
   version "4.1.2"
   resolved "https://registry.yarnpkg.com/lodash.memoize/-/lodash.memoize-4.1.2.tgz#bcc6c49a42a2840ed997f323eada5ecd182e0bfe"
 
+lodash.pick@^4.4.0:
+  version "4.4.0"
+  resolved "https://registry.yarnpkg.com/lodash.pick/-/lodash.pick-4.4.0.tgz#52f05610fff9ded422611441ed1fc123a03001b3"
+
 lodash.template@^4.4.0:
   version "4.4.0"
   resolved "https://registry.yarnpkg.com/lodash.template/-/lodash.template-4.4.0.tgz#e73a0385c8355591746e020b99679c690e68fba0"
@@ -6087,7 +6162,7 @@ raf-schd@^2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/raf-schd/-/raf-schd-2.1.0.tgz#64d645723380ec25cc1714e909b953ef1cf254bf"
 
-raf@3.4.0, raf@^3.1.0:
+raf@3.4.0, raf@^3.1.0, raf@^3.4.0:
   version "3.4.0"
   resolved "https://registry.yarnpkg.com/raf/-/raf-3.4.0.tgz#a28876881b4bc2ca9117d4138163ddb80f781575"
   dependencies:
@@ -6205,6 +6280,12 @@ react-error-overlay@^4.0.0:
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/react-error-overlay/-/react-error-overlay-4.0.0.tgz#d198408a85b4070937a98667f500c832f86bd5d4"
 
+react-input-autosize@^2.2.1:
+  version "2.2.1"
+  resolved "https://registry.yarnpkg.com/react-input-autosize/-/react-input-autosize-2.2.1.tgz#ec428fa15b1592994fb5f9aa15bb1eb6baf420f8"
+  dependencies:
+    prop-types "^15.5.8"
+
 react-is@^16.3.1:
   version "16.3.2"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.3.2.tgz#f4d3d0e2f5fbb6ac46450641eb2e25bf05d36b22"
@@ -6227,6 +6308,10 @@ react-motion@^0.5.2:
     performance-now "^0.2.0"
     prop-types "^15.5.8"
     raf "^3.1.0"
+
+react-prop-toggle@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/react-prop-toggle/-/react-prop-toggle-1.0.2.tgz#8b0b7e74653606b1427cfcf6c4eaa9198330568e"
 
 react-redux@^5.0.6:
   version "5.0.7"
@@ -6273,6 +6358,24 @@ react-router@^4.2.0:
     path-to-regexp "^1.7.0"
     prop-types "^15.5.4"
     warning "^3.0.0"
+
+react-scrolllock@^2.0.2:
+  version "2.0.7"
+  resolved "https://registry.yarnpkg.com/react-scrolllock/-/react-scrolllock-2.0.7.tgz#3b879e1fe308fc900ab76e226e9be594c41226fd"
+  dependencies:
+    exenv "^1.2.2"
+    react-prop-toggle "^1.0.2"
+
+react-select@^2.0.0-beta.2:
+  version "2.0.0-beta.3"
+  resolved "https://registry.yarnpkg.com/react-select/-/react-select-2.0.0-beta.3.tgz#c18df4a56e54563f28c3908840a33bbe48af8104"
+  dependencies:
+    classnames "^2.2.5"
+    emotion "^9.1.2"
+    prop-types "^15.6.0"
+    raf "^3.4.0"
+    react-input-autosize "^2.2.1"
+    react-transition-group "^2.2.1"
 
 react-syntax-highlighter@^6.0.2:
   version "6.1.2"

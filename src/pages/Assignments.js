@@ -5,19 +5,30 @@ import Button, { ButtonGroup } from '@atlaskit/button';
 import EditIcon from '@atlaskit/icon/glyph/edit';
 import TrashIcon from '@atlaskit/icon/glyph/trash';
 import Flex from '../components/Flex';
+import {  inject,observer} from 'mobx-react';
+import AssignmentStore from '../stores/AssignmentStore';
+import UiStore from '../stores/UiStore';
 
-const listAss = [
-    {name: 'Assignment 2' , subject : 'HCI', deadline: "24/5/2018" },
-    {name: 'Assignment 1' , subject : 'HCI', deadline: "24/5/2018" },
-    {name: 'Clone website 2' , subject : 'HCI', deadline: "24/5/2018" },
-    {name: 'Assignment 2' , subject : 'HCI', deadline: "24/5/2018" },
-    {name: 'Assignment 2' , subject : 'HCI', deadline: "24/5/2018" },    
-]
+type Props = {
+    assignments : AssignmentStore,
+    ui: UiStore
+}
 
+@inject('assignments', 'ui')
+@observer
 class Assignments extends Component {
+    props: Props;
+
+    onDelete = (ass) => {
+        const {assignments} = this.props;        
+        const confirm = window.confirm(`are you sure to delete ${ass.name} from ${ass.subject}`);
+        if(confirm) assignments.deleteAss(ass.id)
+    }
+    
     renderRows(): Array {
+        const {assignments, ui} = this.props;
         var rows = [];
-        listAss.forEach((ass,i) => {
+        assignments.getAssignments.forEach((ass) => {
             var row = {
                 cells: [
                     {
@@ -35,15 +46,15 @@ class Assignments extends Component {
                         key: 4,
                         content: <ButtonGroup>
                             <Button
-                                // onClick={() => }
+                                
                                 iconBefore={< EditIcon />} />
                                 <Button
-                                        // onClick={() => this.onDelete(group)}
+                                        onClick={() => this.onDelete(ass)}
                                         iconBefore={< TrashIcon />} />
                         </ButtonGroup>
                     }
                 ],
-                key: i
+                key: ass.id
             }
             rows.push(row);
         });
@@ -78,7 +89,8 @@ class Assignments extends Component {
     }
 
     renderActions(){
-        return <Button appearance="primary">New assignment</Button>
+        const { ui } = this.props;
+        return <Button appearance="primary" onClick={() => ui.openModal('CREATE_ASSIGNMENT')}>New assignment</Button>
     }
 
     render(){
